@@ -1,14 +1,31 @@
 const express = require('express')
 const app = express()
 const database = require('./Configuration/Database')
+const userRoutes = require("./Routes/authRoute");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
+
 require('dotenv').config()
 
-port = process.env.PORT || 5000
-
-
+const PORT = process.env.PORT || 5000
 
 database.connect()
 
-app.listen(port,(req,res) =>{
-    console.log(`Server is running at ${port}` )
+
+app.use(express.json());
+app.use(cookieParser());
+
+app.use(cors())
+
+// app.use(
+// 	cors({
+// 	  origin: "http://localhost:3000",
+// 	  credentials: true,
+// 	})
+//   );
+
+app.use("/api/v1/auth", userRoutes);
+
+app.listen(PORT,(req,res) =>{
+    console.log(`Server is running at ${PORT}` )
 })
