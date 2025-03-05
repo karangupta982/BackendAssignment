@@ -1,5 +1,5 @@
 const express = require("express");
-const { signup, login, sendotp } = require("../controllers/authController");
+const { signup, login, sendotp } = require("../Controllers/authController");
 const { body } = require("express-validator");
 const {resetPassword, resetPasswordToken} = require("../Controllers/ResetPassword")
 
