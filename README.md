@@ -1,8 +1,3 @@
-# BackendAssignment
-
-
-
-
 # User Authentication System
 
 ## Objective
