@@ -9,7 +9,7 @@ const router = express.Router();
 
 
 router.post("/signup", [
-    body("name").notEmpty().withMessage("name is required"),
+    body("userName").notEmpty().withMessage("userName is required"),
     body("email").isEmail().withMessage("valid email required"),
     body("password").isLength({ min: 6 }).withMessage("password must be at least 6 characters"),
     body("otp").isLength({min:4}).withMessage("OTP is required"),

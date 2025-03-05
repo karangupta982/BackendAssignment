@@ -13,7 +13,7 @@ exports.signup = async(req,res) => {
     if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
 
     const {
-        name,
+        userName,
         email,
         password,
         otp 
@@ -46,7 +46,7 @@ exports.signup = async(req,res) => {
 
         const hashedPassword = await bcrypt.hash(password, 10);
         const user = await User.create({
-            name,
+            userName,
             email,
             password: hashedPassword
         })

@@ -2,6 +2,7 @@ const User = require("../Models/userSchema");
 const mailSender = require("../Util/MailSender")
 const bcrypt = require("bcryptjs")
 const crypto = require("crypto")
+const { validationResult } = require("express-validator");
 
 
 exports.resetPasswordToken = async (req, res) => {
@@ -33,7 +34,7 @@ exports.resetPasswordToken = async (req, res) => {
     )
     console.log("DETAILS", updatedDetails)
 
-    const url = `http://localhost:3000/api/v1/update-password/${token}`
+    const url = `http://localhost:3000/update-password/${token}`
 
     await mailSender(
       email,
